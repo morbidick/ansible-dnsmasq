@@ -14,6 +14,14 @@
   notify: restart dnsmasq
   tags: dnsmasq
 
+- name: Set additional hosts file
+  template:
+    src: etc_dnsmasq.hosts.j2
+    dest: "{{ dnsmasq_addn_hosts_file }}"
+  when: dnsmasq_addn_hosts is defined
+  notify: restart dnsmasq
+  tags: dnsmasq
+
 - name: Make sure Dnsmasq is running
   service:
     name: dnsmasq
