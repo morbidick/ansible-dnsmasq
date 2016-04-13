@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  author: Lukas Mohrbacher
+  description: simple ansible role for dnsmasq as local dhcp and dns server
+  license: MIT
+  categories:
+    - network
+  dependencies: []
