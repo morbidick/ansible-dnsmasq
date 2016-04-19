@@ -58,6 +58,10 @@ dhcp-host={{ host.mac }},{{ host.ip  }}{% if host.name is defined %},{{ host.nam
 dhcp-option=3,{{ dnsmasq_option_gateway }}
 {% endif %}
 
+{% if dnsmasq_option_proxy is defined %}
+dhcp-option=252,{{ dnsmasq_option_proxy }}
+{% endif %}
+
 {% if dnsmasq_server is defined %}
 server={{ dnsmasq_server }}
 {% endif %}

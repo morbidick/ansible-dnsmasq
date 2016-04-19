@@ -5,3 +5,4 @@ dnsmasq_authoritative: false
 dnsmasq_expand_hosts: false
 dnsmasq_no_hosts: false
 dnsmasq_addn_hosts_file: /etc/hosts.dnsmasq
+dnsmasq_option_proxy: "\n" #fixes win7 flooding http://brielle.sosdg.org/archives/522-Windows-7-flooding-DHCP-server-with-DHCPINFORM-messages.html
