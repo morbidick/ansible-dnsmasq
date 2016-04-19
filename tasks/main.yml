@@ -1,10 +1,8 @@
 ---
 - name: Install Dnsmasq
-  apt:
+  package:
     name: dnsmasq
     state: 'latest'
-    install_recommends: False
-  tags: dnsmasq
 
 - name: Set configuration file
   template:
@@ -12,7 +10,6 @@
     dest: /etc/dnsmasq.conf
     validate: 'dnsmasq --test --conf-file=%s'
   notify: restart dnsmasq
-  tags: dnsmasq
 
 - name: Set additional hosts file
   template:
@@ -20,11 +17,9 @@
     dest: "{{ dnsmasq_addn_hosts_file }}"
   when: dnsmasq_addn_hosts is defined
   notify: restart dnsmasq
-  tags: dnsmasq
 
 - name: Make sure Dnsmasq is running
   service:
     name: dnsmasq
     state: started
     enabled: yes
-  tags: dnsmasq
